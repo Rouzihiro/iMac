@@ -1,0 +1,13 @@
+OS: NixOS 23.11.7122.9ddcaffecdf0 (Tapir) x86_64 
+Host: Apple Inc. Mac-942B5BF58194151B 
+Kernel: 6.1.90 
+Shell: bash 5.2.15 
+Resolution: 1920x1080 
+DE: GNOME 45.5 (Wayland) 
+WM: Mutter 
+Terminal: kgx 
+CPU: Intel i5-2400S (4) @ 3.300GHz 
+GPU: Intel 2nd Generation Core Processor Family 
+GPU: AMD ATI Radeon HD 6630M/6650M/6750M/7670M/7690M 
+Memory: 16 GB 
+
