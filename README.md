@@ -1,2 +1,0 @@
-# iMac
-My Imac Flakes
