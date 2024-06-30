@@ -1,0 +1,6 @@
+pkill waybar && hyprctl dispatch exec waybar
+
+
+source= ~/.cond/cyber theme
+
+git clone https://github.com/taylor85345/cyber-hyprland-theme cyber
