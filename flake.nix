@@ -58,7 +58,7 @@
 
               # Set the PKG_CONFIG_PATH, INCLUDE_DIR, and LIB_DIR for zlib
               environment.variables = {
-                PKG_CONFIG_PATH = "${pkgs.zlib.dev}/lib/pkgconfig";
+                PKG_CONFIG_PATH = "/nix/store/dq03m14rqjvbz6pw42g555df4khh4bvr-zlib-1.3.1-dev/lib/pkgconfig:/nix/store/wz1lmhhmvjxj2ipp2z5mvkydchhljggm-zlib-1.3.1-dev/lib/pkgconfig:/nix/store/wr7dp1h21ah4rrhfin7c2jwxps2sz11h-zlib-1.3.1-dev/lib/pkgconfig:/nix/store/0w4q8asq9sn56dl0sxp1m8gk4vy2ygs8-zlib-1.3.1-dev/lib/pkgconfig:/nix/store/m0srm9af6k3n75j11cr7c0m4fnb8a8c2-system-path/lib/pkgconfig";
                 INCLUDE_DIR = "${pkgs.zlib.dev}/include";
                 LIB_DIR = "${pkgs.zlib.dev}/lib";
               };
