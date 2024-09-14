@@ -52,12 +52,16 @@
                 rPackages.dplyr           # For data manipulation
                 pandoc                    # Optional: if you need document conversion
                 chromium                  # Optional: for pagedown's chrome_print function
-                zlib                      # Add zlib to solve the haven issue
+                zlib.dev                  # Add zlib development libraries
                 pkg-config                # Ensure pkg-config is available
               ];
 
-              # Set the PKG_CONFIG_PATH environment variable for zlib
-              environment.variables.PKG_CONFIG_PATH = "${pkgs.zlib.dev}/lib/pkgconfig";
+              # Set the PKG_CONFIG_PATH, INCLUDE_DIR, and LIB_DIR for zlib
+              environment.variables = {
+                PKG_CONFIG_PATH = "${pkgs.zlib.dev}/lib/pkgconfig";
+                INCLUDE_DIR = "${pkgs.zlib.dev}/include";
+                LIB_DIR = "${pkgs.zlib.dev}/lib";
+              };
             }
           ];
         };
