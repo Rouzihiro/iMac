@@ -11,7 +11,7 @@
   imports = [
     ./hardware.nix
     ./users.nix
-    ./rstudio.nix
+    #./rstudio.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -303,8 +303,8 @@
     libinput
     texlive.combined.scheme-full
     zathura
-    rstudio
-    zlib #needed for Rstudio
+    #rstudio
+    #zlib #needed for Rstudio
   ];
 
   fonts = {
