@@ -419,7 +419,7 @@
   services.blueman.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  #sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   security.sudo.enable = true;
@@ -481,7 +481,7 @@
   # OpenGL
   hardware.opengl = {
     enable = true;
-    driSupport = true;
+    #driSupport = true;
     driSupport32Bit = true;
   };
 
