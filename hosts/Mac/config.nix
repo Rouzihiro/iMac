@@ -303,6 +303,7 @@
     texlive.combined.scheme-full
     zathura
     rstudio
+    zlib #needed for Rstudio
   ];
 
   fonts = {
