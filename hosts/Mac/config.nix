@@ -302,7 +302,7 @@
     libinput
     texlive.combined.scheme-full
     zathura
-    r-studio
+    rstudio
   ];
 
   fonts = {
