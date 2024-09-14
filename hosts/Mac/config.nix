@@ -305,7 +305,6 @@
     zathura
     rstudio
     zlib #needed for Rstudio
-    R-with-my-packages
   ];
 
   fonts = {
