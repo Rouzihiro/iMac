@@ -301,6 +301,8 @@
     bluez-tools
     libinput
     texlive.combined.scheme-full
+    zathura
+    zathura-pdf-poppler
   ];
 
   fonts = {
