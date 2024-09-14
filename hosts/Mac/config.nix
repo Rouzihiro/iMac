@@ -300,6 +300,7 @@
     bluez
     bluez-tools
     libinput
+    texlive.combined.scheme-full
   ];
 
   fonts = {
