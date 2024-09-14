@@ -1,19 +1,25 @@
-{ pkgs, ... }:
+{ pkgs ? import <nixpkgs> {}, ... }:
 
 let
-  R-with-my-packages = pkgs.rWrapper.override {
+  # Define the custom RStudio environment with desired packages
+  RStudio-with-my-packages = pkgs.rstudioWrapper.override {
     packages = with pkgs.rPackages; [
-      haven
-      ggplot2
-      dplyr
-      # Add other R packages here
+      tidyverse
+      snakecase
     ];
   };
 in
 {
   environment.systemPackages = with pkgs; [
-    R-with-my-packages
-    # Other system packages
+    neovim           # Text editor
+    RStudio-with-my-packages # RStudio with specific R packages
+    # Add other programs here as needed
+    # other-programs-y
   ];
+
+  # Optionally, add environment variables if needed
+  environment.variables = {
+    # Add any environment variables here if needed
+  };
 }
 

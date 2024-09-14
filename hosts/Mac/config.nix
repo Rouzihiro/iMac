@@ -11,7 +11,7 @@
   imports = [
     ./hardware.nix
     ./users.nix
-    #./rstudio.nix
+    ./rstudio.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
