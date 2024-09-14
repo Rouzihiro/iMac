@@ -303,7 +303,7 @@
     libinput
     texlive.combined.scheme-full
     zathura
-    #rstudio
+    rstudio
     #zlib #needed for Rstudio
   ];
 
