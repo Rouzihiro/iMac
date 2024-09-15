@@ -283,7 +283,7 @@
     swww
     grim
     slurp
-    gnome.file-roller
+    file-roller
     swaynotificationcenter
     imv
     mpv
@@ -483,10 +483,9 @@
   };
 
   # OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    #driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Open ports in the firewall.

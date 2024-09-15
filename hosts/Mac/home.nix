@@ -2,6 +2,7 @@
   pkgs,
   username,
   host,
+  lib,
   ...
 }:
 let
@@ -177,7 +178,7 @@ in
         wheel_scroll_min_lines = 1;
         window_padding_width = 4;
         confirm_os_window_close = 0;
-        background_opacity = 0.5;
+        background_opacity = lib.mkForce "0.5";
       };
       extraConfig = ''
         tab_bar_style fade
@@ -249,7 +250,7 @@ in
         };
         background = [
           {
-            path = "/home/${username}/Pictures/Wallpapers/zaney-wallpaper.jpg";
+            path = "/home/${username}/Pictures/Wallpapers/active.jpg";
             blur_passes = 3;
             blur_size = 8;
           }
