@@ -134,7 +134,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  users.defaultUserShell = pkgs.zsh;
+
   programs = {
+    zsh.enable = true;
     firefox.enable = true;
     starship = {
       enable = true;
@@ -305,7 +308,7 @@
     zathura
     rstudio
     zlib #needed for Rstudio
-  ];
+    ];
 
   fonts = {
     packages = with pkgs; [

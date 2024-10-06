@@ -3,6 +3,7 @@
   username,
   host,
   lib,
+  config,
   ...
 }:
 let
@@ -195,6 +196,45 @@ in
 		};
     };
     };
+
+  zsh = {
+  enable = true;
+  enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
+  oh-my-zsh = {
+    enable = true;
+    plugins = [ "git" "thefuck" ];
+    theme = "robbyrussell";
+  };
+shellAliases = {
+        sv = "sudo nvim";
+        fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
+        fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
+        zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
+        ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        v = "nvim";
+        cat = "bat";
+        ls = "eza --icons";
+        ll = "eza -lh --icons --grid --group-directories-first";
+        la = "eza -lah --icons --grid --group-directories-first";
+        ".." = "cd ..";
+        cls = "clear";
+        rey-git-show = "mksh ${scripts}/rey-git-show.sh";
+        rey-script-permission = "mksh ${scripts}/script-folder-permission.sh";
+        rey-youtube-downloader = "mksh ${scripts}/youtube-downloader.sh";
+        rey-mount-Acer-HD = "mksh ${scripts}/mount-Acer-HD.sh";
+        md = "mkdir";
+        rey-jdownloader = "mksh ${scripts}/jdownloader.sh";
+        psg = "ps aux | grep";
+        rey-weatherHH = "curl -4 http://wttr.in/Hamburg";
+        rey-weather = "curl -4 http://wttr.in/";
+      };
+ history = {
+    size = 10000;
+    path = "${config.xdg.dataHome}/zsh/history";
+  };
+  };
     bash = {
       enable = true;
       enableCompletion = true;
