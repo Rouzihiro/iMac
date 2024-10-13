@@ -117,7 +117,7 @@
   networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -131,7 +131,7 @@
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -308,6 +308,7 @@
     zathura
     rstudio
     zlib #needed for Rstudio
+    thefuck
     ];
 
   fonts = {
