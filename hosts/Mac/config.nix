@@ -12,7 +12,7 @@
     ./hardware.nix
     ./users.nix
     ./rstudio.nix
-    ./zsh.nix
+    #./zsh.nix
     ../../modules/amd-drivers.nix
     ../../modules/nvidia-drivers.nix
     ../../modules/nvidia-prime-drivers.nix
@@ -311,6 +311,7 @@
     zlib #needed for Rstudio
     thefuck
     eza
+    fzf
     ];
 
   fonts = {
