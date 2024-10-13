@@ -28,6 +28,7 @@ in
     ../../config/swaync.nix
     ../../config/waybar.nix
     ../../config/wlogout.nix
+    ./zsh.nix
   ];
 
   # Place Files Inside Home Directory
