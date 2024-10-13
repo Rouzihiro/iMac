@@ -71,7 +71,7 @@
         "fluxcd"
         "helm"
         "man"
-        "tmux"
+        #"tmux"
       ];
     };
   };
