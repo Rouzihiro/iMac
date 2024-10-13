@@ -310,6 +310,7 @@
     rstudio
     zlib #needed for Rstudio
     thefuck
+    eza
     ];
 
   fonts = {
