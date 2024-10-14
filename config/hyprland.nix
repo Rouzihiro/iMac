@@ -10,6 +10,7 @@
 
 let
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  hyprlock_idle = import ./hyprlock.nix { inherit pkgs lib; };
   inherit (import ../hosts/${host}/variables.nix)
     browser
     terminal
@@ -206,7 +207,9 @@ with lib;
           bind = ,XF86AudioPrev, exec, playerctl previous
           bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
           bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
-        ''
+        
+          ${hyprlock.wayland.windowManager.hyprland.extraConfig}
+          ''
       ];
   };
 }
