@@ -3,11 +3,11 @@
 let
   dbus-sway-environment = pkgs.writeTextFile {
     name = "dbus-sway-environment";
-    destination = "/bin/dbus-sway-enviroment";
+    destination = "/bin/dbus-sway-environment";
     executable = true;
 
     text = ''
-      dbus-update-activation-enviroment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
       systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
       systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
     '';
@@ -15,7 +15,7 @@ let
 
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
-    destination = "/bin/configure/-gtk";
+    destination = "/bin/configure-gtk";
     executable = true;
     text =
       let
