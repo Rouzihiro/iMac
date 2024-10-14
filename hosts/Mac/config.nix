@@ -299,7 +299,6 @@
     greetd.tuigreet
     yazi
     thunderbird
-    mksh
     openjdk17
     lxtask
     bluez
@@ -310,8 +309,9 @@
     rstudio
     zlib #needed for Rstudio
     thefuck
-    eza
     fzf
+    hyprlock
+    hypridle
     ];
 
   fonts = {
