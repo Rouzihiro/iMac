@@ -11,14 +11,15 @@
   wayland.windowManager.hyprland = {
     extraConfig = lib.concatStrings [
       ''
+        # Start hypridle and hyprlock on session start
         exec-once = hypridle &
         exec-once = hyprlock &
 
         # Hyprlock background settings
         hyprlock {
           background {
-            monitor = 
-            path = /users/rey/home/Wallpapers/witcher.jpg
+            monitor = 0 # Set the appropriate monitor number or remove this line
+            path = /dotfiles/user/wallpapers/witcher.jpg
             blur_size = 0
             blur_passes = 0
             noise = 0.0117
@@ -29,8 +30,8 @@
           }
 
           image {
-            monitor = 
-            path = /users/rey/home/Wallpapers/Avatar/witcher-gerald.jpg
+            monitor = 0 # Set the appropriate monitor number or remove this line
+            path = /dotfiles/user/wallpapers/Avatar/witcher-gerald.jpg
             size = 300
             rounding = -1
             border_size = 4
@@ -43,8 +44,8 @@
           }
 
           label {
-            monitor = 
-            text = cmd[update:1000] echo "<b><big> $(date +"%I:%M %P") </big></b>"
+            monitor = 0 # Set the appropriate monitor number or remove this line
+            text = cmd[update:1000] echo "<b><big> $(date +\"%I:%M %P\") </big></b>"
             font_size = 64
             font_family = "JetBrains Mono Nerd Font 10"
             shadow_passes = 3
@@ -55,8 +56,8 @@
           }
 
           label {
-            monitor = 
-            text = cmd[update:18000000] echo "<b> "$(date +'%A, %-d %B %Y')" </b>"
+            monitor = 0 # Set the appropriate monitor number or remove this line
+            text = cmd[update:18000000] echo "<b> $(date +'%A, %-d %B %Y') </b>"
             font_size = 24
             font_family = "JetBrains Mono Nerd Font 10"
             position = 0, -120
@@ -65,7 +66,7 @@
           }
 
           input-field {
-            monitor = 
+            monitor = 0 # Set the appropriate monitor number or remove this line
             size = 250, 50
             outline_thickness = 3
             dots_size = 0.26
