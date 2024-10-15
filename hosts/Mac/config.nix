@@ -312,6 +312,7 @@
     fzf
     hyprlock
     hypridle
+    yt-dlp
     ];
 
   fonts = {

@@ -9,7 +9,7 @@
 let
   inherit (import ./variables.nix) gitUsername gitEmail;
  # dots = "/dotfiles";
-  scripts = "/dotfiles/scripts";
+  scripts = "/home/${username}/scripts";
 in
 {
   # Home Manager Settings
@@ -222,11 +222,11 @@ shellAliases = {
         ".." = "cd ..";
         cls = "clear";
         rey-git-show = "mksh ${scripts}/rey-git-show.sh";
-        rey-script-permission = "mksh ${scripts}/script-folder-permission.sh";
-        rey-youtube-downloader = "mksh ${scripts}/youtube-downloader.sh";
-        rey-mount-Acer-HD = "mksh ${scripts}/mount-Acer-HD.sh";
+        rey-script-permission = "zsh ${scripts}/script-folder-permission.sh";
+        rey-youtube-downloader = "zsh ${scripts}/youtube-downloader.sh";
+        rey-mount-Acer-HD = "zsh ${scripts}/mount-Acer-HD.sh";
         md = "mkdir";
-        rey-jdownloader = "mksh ${scripts}/jdownloader.sh";
+        rey-jdownloader = "zsh ${scripts}/jdownloader.sh";
         psg = "ps aux | grep";
         rey-weatherHH = "curl -4 http://wttr.in/Hamburg";
         rey-weather = "curl -4 http://wttr.in/";
@@ -284,7 +284,7 @@ shellAliases = {
         };
         background = [
           {
-            path = "/home/${username}/.config/hypr/lock.jpg";
+            path = "/home/${username}/.config/lock.jpg";
             blur_passes = 3;
             blur_size = 8;
           }
