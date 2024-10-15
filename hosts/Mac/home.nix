@@ -151,11 +151,11 @@ in
         };
         listener = [
           {
-            timeout = 900;
+            timeout = 300;
             on-timeout = "hyprlock";
           }
           {
-            timeout = 1200;
+            timeout = 900;
             on-timeout = "hyprctl dispatch dpms off";
             on-resume = "hyprctl dispatch dpms on";
           }
@@ -263,13 +263,6 @@ shellAliases = {
         la = "eza -lah --icons --grid --group-directories-first";
         ".." = "cd ..";
         cls = "clear";
-        rey-git-push = "mksh ${scripts}/rey-git-push.sh";
-        rey-git-force-push = "mksh ${scripts}/rey-git-push-force.sh";
-        rey-git-pull = "mksh ${scripts}/rey-git-pull.sh";
-        rey-git-goback = "mksh ${scripts}/rey-git-goback.sh";
-        rey-git-clean = "mksh ${scripts}/rey-git-clean.sh";
-        rey-git-show = "mksh ${scripts}/rey-git-show.sh";
-        rey-script-permission = "mksh ${scripts}/script-folder-permission.sh";
         rey-youtube-downloader = "mksh ${scripts}/youtube-downloader.sh";
         rey-mount-Acer-HD = "mksh ${scripts}/mount-Acer-HD.sh";
         md = "mkdir";
@@ -291,7 +284,7 @@ shellAliases = {
         };
         background = [
           {
-            path = "/home/${username}/Pictures/Wallpapers/active.jpg";
+            path = "/home/${username}/.config/hypr/lock.jpg";
             blur_passes = 3;
             blur_size = 8;
           }
