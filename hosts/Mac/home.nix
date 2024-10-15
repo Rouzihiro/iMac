@@ -208,9 +208,14 @@ in
     plugins = [ "git" "thefuck" ];
     theme = "robbyrussell";
   };
-    interactiveShellInit = ''
-    alias rey-utube-downloader="~/zaneyos/scripts/utube-downloader.sh"
-   '';
+
+  # Add initExtra to load custom scripts and environment variables
+  initExtra = ''
+    fastfetch
+    if [ -f $HOME/.zshrc-personal ]; then
+      source $HOME/.zshrc-personal
+    fi
+  '';
 
     shellAliases = {
         sv = "sudo nvim";
@@ -225,6 +230,7 @@ in
         la = "eza -lah --icons --grid --group-directories-first";
         ".." = "cd ..";
         cls = "clear";
+        rey-utube-downloader="~/zaneyos/scripts/utube-downloader.sh";
         rey-git-show = "zsh ${scripts}/rey-git-show.sh";
         rey-script-permission = "zsh ${scripts}/script-folder-permission.sh";
         rey-youtube-downloader = "zsh ${scripts}/youtube-downloader.sh";
@@ -240,42 +246,35 @@ in
     path = "${config.xdg.dataHome}/zsh/history";
   };
   };
-    bash = {
-      enable = true;
-      enableCompletion = true;
-      profileExtra = ''
-        #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-        #  exec Hyprland
-        #fi
-      '';
-      initExtra = ''
-        fastfetch
-        if [ -f $HOME/.bashrc-personal ]; then
-          source $HOME/.bashrc-personal
-        fi
-      '';
-      shellAliases = {
-        sv = "sudo nvim";
-        fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
-        fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
-        zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
-        ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
-        v = "nvim";
-        cat = "bat";
-        ls = "eza --icons";
-        ll = "eza -lh --icons --grid --group-directories-first";
-        la = "eza -lah --icons --grid --group-directories-first";
-        ".." = "cd ..";
-        cls = "clear";
-        rey-youtube-downloader = "zsh ${scripts}/youtube-downloader.sh";
-        rey-mount-Acer-HD = "zsh ${scripts}/mount-Acer-HD.sh";
-        md = "mkdir";
-        rey-jdownloader = "zsh ${scripts}/jdownloader.sh";
-        psg = "ps aux | grep";
-        rey-weatherHH = "curl -4 http://wttr.in/Hamburg";
-        rey-weather = "curl -4 http://wttr.in/";
-      };
-    };
+ #     bash = {
+ #       enable = true;
+ #       enableCompletion = true;
+ #       profileExtra = ''
+ #         #if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+ #         #  exec Hyprland
+ #         #fi
+ #       '';
+ #       initExtra = ''
+ #         fastfetch
+ #         if [ -f $HOME/.bashrc-personal ]; then
+ #           source $HOME/.bashrc-personal
+ #         fi
+ #       '';
+ #       shellAliases = {
+ #         sv = "sudo nvim";
+ #         fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
+ #         fu = "nh os switch --hostname ${host} --update /home/${username}/zaneyos";
+ #         zu = "sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)";
+ #         ncg = "nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+ #         v = "nvim";
+ #         cat = "bat";
+ #         ls = "eza --icons";
+ #         ll = "eza -lh --icons --grid --group-directories-first";
+ #         la = "eza -lah --icons --grid --group-directories-first";
+ #         ".." = "cd ..";
+ #         cls = "clear";
+ #              };
+ #     };
     home-manager.enable = true;
     hyprlock = {
       enable = true;
