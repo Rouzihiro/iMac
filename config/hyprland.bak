@@ -1,20 +1,12 @@
-{
-  lib,
-  username,
-  host,
-  inputs,
-  pkgs,
-  config,
-  ...
-}:
+{ lib, username, host, inputs, pkgs, config, ... }:
 
 let
-  hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system}; 
+  hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  hyprlock_idle = import ./hyprlock.nix { inherit pkgs lib; };
   inherit (import ../hosts/${host}/variables.nix)
     browser
     terminal
-    extraMonitorSettings
-    ;
+    extraMonitorSettings;
 in
 with lib;
 {
@@ -52,7 +44,7 @@ with lib;
           exec-once = lxqt-policykit-agent
           exec-once = sleep 1.5 && swww img /home/${username}/Pictures/Wallpapers/beautifulmountainscape.jpg
           exec-once = blueman-manager
- monitor=,preferred,auto,1
+          monitor=,preferred,auto,1
            ${extraMonitorSettings}
           general {
             gaps_in = 6
@@ -206,7 +198,10 @@ with lib;
           bind = ,XF86AudioPrev, exec, playerctl previous
           bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
           bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
-          ''
+        
+          ${hyprlock_idle.wayland.windowManager.hyprland.extraConfig}
+        ''
       ];
   };
 }
+
