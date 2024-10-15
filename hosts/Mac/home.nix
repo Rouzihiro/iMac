@@ -230,7 +230,7 @@ in
         la = "eza -lah --icons --grid --group-directories-first";
         ".." = "cd ..";
         cls = "clear";
-        rey-utube-downloader="~/zaneyos/scripts/utube-downloader.sh";
+        rey-utube-downloader = "./result/bin/youtube-downloader";
         rey-git-show = "zsh ${scripts}/rey-git-show.sh";
         rey-script-permission = "zsh ${scripts}/script-folder-permission.sh";
         rey-youtube-downloader = "zsh ${scripts}/youtube-downloader.sh";
