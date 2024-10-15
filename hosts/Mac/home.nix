@@ -208,6 +208,10 @@ in
     plugins = [ "git" "thefuck" ];
     theme = "robbyrussell";
   };
+    interactiveShellInit = ''
+    alias rey-utube-downloader="~/zaneyos/scripts/utube-downloader.sh"
+   '';
+
     shellAliases = {
         sv = "sudo nvim";
         fr = "nh os switch --hostname ${host} /home/${username}/zaneyos";
