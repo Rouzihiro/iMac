@@ -131,7 +131,7 @@ with lib;
             preserve_split = true
           }
           bind = ${modifier},Return,exec,${terminal}
-          bind = ${modifier},Y,exec,kitty --login -e yazi
+          bind = ${modifier},Y,exec,kitty -e sh -c 'source ~/.zshrc; yazi'
           bind = ${modifier}SHIFT,Return,exec,rofi-launcher
           bind = ${modifier}SHIFT,W,exec,web-search
           bind = ${modifier}ALT,W,exec,wallsetter
