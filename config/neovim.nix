@@ -1,20 +1,18 @@
 { pkgs, inputs, ... }:
+
 let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
 
-  # Fetch the Yazi plugin
-  yazi = pkgs.vimUtils.buildVimPlugin {
-    name = "yazi.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "mikavilpas";
-      repo = "yazi.nvim";
-      rev = "93fd9dc";  # You can specify a specific commit hash if needed
-      src = ".";
-    };
-  };
+  yaziNvim = pkgs.vimPlugins.callPackage (pkgs.fetchFromGitHub {
+    owner = "mikavilpas";
+    repo = "yazi.nvim";
+    rev = "93fd9dc";  # Latest commit hash
+    # `src` is not needed here as `fetchFromGitHub` will correctly structure the repository
+  }) {};
+  
 in
 {
   programs = {
@@ -25,6 +23,7 @@ in
       vimAlias = true;
       vimdiffAlias = true;
       withNodeJs = true;
+
       extraPackages = with pkgs; [
         lua-language-server
         gopls
@@ -33,11 +32,11 @@ in
         luajitPackages.lua-lsp
         nil
         rust-analyzer
-        #nodePackages.bash-language-server
         yaml-language-server
         pyright
         marksman
       ];
+
       plugins = with pkgs.vimPlugins; [
         alpha-nvim
         auto-session
@@ -63,21 +62,20 @@ in
         nvim-ts-context-commentstring
         plenary-nvim
         neodev-nvim
-        luasnip
         telescope-nvim
         todo-comments-nvim
         nvim-tree-lua
         telescope-fzf-native-nvim
         vim-tmux-navigator
         vimtex
-
-        # Add the Yazi plugin here
-        yazi
+        yaziNvim  # Include the fetched plugin here
       ];
+
       extraConfig = ''
         set noemoji
         nnoremap : <cmd>FineCmdline<CR>
       '';
+
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/keymaps.lua}
