@@ -202,7 +202,7 @@ in
         show_symlink = true;
         };
         editor = {
-        command = "nvim";
+        command = "/etc/profiles/per-user/rey/bin/nvim";
         #args = [ "--" ];
         };
       filetypes = {
