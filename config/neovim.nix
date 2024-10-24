@@ -10,7 +10,7 @@ let
     owner = "mikavilpas";
     repo = "yazi.nvim";
     rev = "93fd9dc";  # Latest commit hash
-    sha256 = lib.fakeSha256;  # Temporarily bypass the hash check
+    sha256 = "09xn1dpcbs71nclzbcq5j0wiwca4jb688r5i2745kl6wlgzw4x0g";  # Temporarily bypass the hash check
     # Specify the branch if needed, e.g. branch = "main";
   };
   
