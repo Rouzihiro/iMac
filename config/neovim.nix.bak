@@ -59,14 +59,6 @@ in
         telescope-fzf-native-nvim
         vim-tmux-navigator
         vimtex
-
-       (pkgs.vimPlugins.callPackage (pkgs.fetchFromGitHub {
-        owner = "mikavilpas";
-        repo = "yazi.nvim";
-        rev = "main";  # You can specify a specific commit hash if needed
-        src = "src";  # Adjust if the structure changes
-      }) {})
-
       ];
       extraConfig = ''
         set noemoji
