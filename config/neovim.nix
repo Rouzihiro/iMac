@@ -11,8 +11,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "mikavilpas";
       repo = "yazi.nvim";
-      rev = "main";  # You can specify a specific commit hash if needed
-      # No need to specify src, it defaults to the root of the repo.
+      rev = "93fd9dc";  # You can specify a specific commit hash if needed
+      src = ".";
     };
   };
 in
