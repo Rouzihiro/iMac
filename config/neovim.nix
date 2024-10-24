@@ -67,11 +67,11 @@ in
         set noemoji
         nnoremap : <cmd>FineCmdline<CR> 
         require("which-key").setup {}
+
         require("which-key").register({
           [":"] = {
               name = "Commands",
               Y = { "<cmd>Yazi<CR>", "Yazi" },
-              -- Add more commands here
           }
         }, { prefix = "<leader>" })
       '';
