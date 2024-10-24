@@ -6,12 +6,11 @@ let
     src = inputs.fine-cmdline;
   };
 
-  yaziNvim = pkgs.vimPlugins.callPackage (pkgs.fetchFromGitHub {
+  yaziNvim = pkgs.vimPlugins.fetchFromGitHub {
     owner = "mikavilpas";
     repo = "yazi.nvim";
     rev = "93fd9dc";  # Latest commit hash
-    # `src` is not needed here as `fetchFromGitHub` will correctly structure the repository
-  }) {};
+  };
   
 in
 {
@@ -68,7 +67,7 @@ in
         telescope-fzf-native-nvim
         vim-tmux-navigator
         vimtex
-        yaziNvim  # Include the fetched plugin here
+        yaziNvim  # Directly include the fetched plugin
       ];
 
       extraConfig = ''
@@ -90,7 +89,7 @@ in
         ${builtins.readFile ./nvim/plugins/todo-comments.lua}
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
         ${builtins.readFile ./nvim/plugins/fine-cmdline.lua}
-        ${builtins.readFile ./nvim/plugins/vimtex.lua} 
+        ${builtins.readFile ./nvim/plugins/vimtex.lua}
         require("ibl").setup()
         require("bufferline").setup{}
         require("lualine").setup({
