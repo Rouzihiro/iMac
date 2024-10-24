@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 
 let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
