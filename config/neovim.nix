@@ -1,19 +1,11 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
-
-  yaziNvim = pkgs.fetchFromGitHub {
-    owner = "mikavilpas";
-    repo = "yazi.nvim";
-    rev = "93fd9dc";  # Latest commit hash
-    sha256 = "09xn1dpcbs71nclzbcq5j0wiwca4jb688r5i2745kl6wlgzw4x0g";  # Temporarily bypass the hash check
-    # Specify the branch if needed, e.g. branch = "main";
-  };
-  
+  yazi = pkgs.vimPlugins.yazi-nvim;
 in
 {
   programs = {
@@ -24,7 +16,6 @@ in
       vimAlias = true;
       vimdiffAlias = true;
       withNodeJs = true;
-
       extraPackages = with pkgs; [
         lua-language-server
         gopls
@@ -37,7 +28,6 @@ in
         pyright
         marksman
       ];
-
       plugins = with pkgs.vimPlugins; [
         alpha-nvim
         auto-session
@@ -46,6 +36,7 @@ in
         indent-blankline-nvim
         nui-nvim
         finecmdline
+        yazi  # Adding yazi.nvim plugin
         nvim-treesitter.withAllGrammars
         lualine-nvim
         nvim-autopairs
@@ -63,20 +54,18 @@ in
         nvim-ts-context-commentstring
         plenary-nvim
         neodev-nvim
+        luasnip
         telescope-nvim
         todo-comments-nvim
         nvim-tree-lua
         telescope-fzf-native-nvim
         vim-tmux-navigator
         vimtex
-        yaziNvim  # Directly include the fetched plugin
       ];
-
       extraConfig = ''
         set noemoji
         nnoremap : <cmd>FineCmdline<CR>
       '';
-
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/options.lua}
         ${builtins.readFile ./nvim/keymaps.lua}
@@ -91,7 +80,7 @@ in
         ${builtins.readFile ./nvim/plugins/todo-comments.lua}
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
         ${builtins.readFile ./nvim/plugins/fine-cmdline.lua}
-        ${builtins.readFile ./nvim/plugins/vimtex.lua}
+        ${builtins.readFile ./nvim/plugins/yazi.lua}  # Adding yazi configuration if needed
         require("ibl").setup()
         require("bufferline").setup{}
         require("lualine").setup({
