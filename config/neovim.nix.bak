@@ -1,9 +1,11 @@
 { pkgs, inputs, ... }:
+
 let
   finecmdline = pkgs.vimUtils.buildVimPlugin {
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
+  yazi = pkgs.vimPlugins.yazi-nvim;
 in
 {
   programs = {
@@ -22,7 +24,6 @@ in
         luajitPackages.lua-lsp
         nil
         rust-analyzer
-        #nodePackages.bash-language-server
         yaml-language-server
         pyright
         marksman
@@ -35,6 +36,7 @@ in
         indent-blankline-nvim
         nui-nvim
         finecmdline
+        yazi  # Adding yazi.nvim plugin
         nvim-treesitter.withAllGrammars
         lualine-nvim
         nvim-autopairs
@@ -77,8 +79,7 @@ in
         ${builtins.readFile ./nvim/plugins/telescope.lua}
         ${builtins.readFile ./nvim/plugins/todo-comments.lua}
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
-        ${builtins.readFile ./nvim/plugins/fine-cmdline.lua}
-        ${builtins.readFile ./nvim/plugins/vimtex.lua} 
+        ${builtins.readFile ./nvim/plugins/fine-cmdline.lua} 
         require("ibl").setup()
         require("bufferline").setup{}
         require("lualine").setup({
@@ -88,3 +89,4 @@ in
     };
   };
 }
+

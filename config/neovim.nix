@@ -6,6 +6,7 @@ let
     src = inputs.fine-cmdline;
   };
   yazi = pkgs.vimPlugins.yazi-nvim;
+  whichKey = pkgs.vimPlugins.which-key-nvim; # Add WhichKey plugin
 in
 {
   programs = {
@@ -36,7 +37,8 @@ in
         indent-blankline-nvim
         nui-nvim
         finecmdline
-        yazi  # Adding yazi.nvim plugin
+        yazi
+        whichKey  # Adding WhichKey plugin
         nvim-treesitter.withAllGrammars
         lualine-nvim
         nvim-autopairs
@@ -54,7 +56,6 @@ in
         nvim-ts-context-commentstring
         plenary-nvim
         neodev-nvim
-        luasnip
         telescope-nvim
         todo-comments-nvim
         nvim-tree-lua
@@ -79,12 +80,13 @@ in
         ${builtins.readFile ./nvim/plugins/telescope.lua}
         ${builtins.readFile ./nvim/plugins/todo-comments.lua}
         ${builtins.readFile ./nvim/plugins/treesitter.lua}
-        ${builtins.readFile ./nvim/plugins/fine-cmdline.lua} 
+        ${builtins.readFile ./nvim/plugins/fine-cmdline.lua}
         require("ibl").setup()
         require("bufferline").setup{}
         require("lualine").setup({
           icons_enabled = true,
         })
+        require("which-key").setup {}  # Initialize WhichKey
       '';
     };
   };
