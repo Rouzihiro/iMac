@@ -5,13 +5,14 @@ let
     src = inputs.fine-cmdline;
   };
 
+  # Fetch the Yazi plugin
   yazi = pkgs.vimUtils.buildVimPlugin {
     name = "yazi.nvim";
     src = pkgs.fetchFromGitHub {
       owner = "mikavilpas";
       repo = "yazi.nvim";
       rev = "main";  # You can specify a specific commit hash if needed
-      # This should point to the correct structure in the repo; typically, the default src is enough.
+      # No need to specify src, it defaults to the root of the repo.
     };
   };
 in
