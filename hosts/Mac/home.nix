@@ -194,6 +194,13 @@ in
       settings = {
 			  manager = {
 				show_hidden = true;
+        editor = {
+        command = "nvim";
+              #args = [ "--" ];
+        };
+      filetypes = {
+      "*.nix" = "nvim";
+    };
 		};
     };
     };
