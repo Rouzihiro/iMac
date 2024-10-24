@@ -65,15 +65,7 @@ in
       ];
       extraConfig = ''
         set noemoji
-        nnoremap : <cmd>FineCmdline<CR> 
-        require("which-key").setup {}
-
-        require("which-key").register({
-          [":"] = {
-              name = "Commands",
-              Y = { "<cmd>Yazi<CR>", "Yazi" },
-          }
-        }, { prefix = "<leader>" })
+        nnoremap : <cmd>FineCmdline<CR>  
       '';
       extraLuaConfig = ''
         ${builtins.readFile ./nvim/options.lua}
