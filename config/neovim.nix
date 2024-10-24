@@ -6,10 +6,11 @@ let
     src = inputs.fine-cmdline;
   };
 
-  yaziNvim = pkgs.vimPlugins.fetchFromGitHub {
+  yaziNvim = pkgs.fetchFromGitHub {
     owner = "mikavilpas";
     repo = "yazi.nvim";
     rev = "93fd9dc";  # Latest commit hash
+    # Specify the branch if needed, e.g. branch = "main";
   };
   
 in
