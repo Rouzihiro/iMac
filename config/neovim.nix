@@ -5,11 +5,14 @@ let
     src = inputs.fine-cmdline;
   };
 
-  yazi = pkgs.fetchFromGitHub {
-    owner = "mikavilpas";
-    repo = "yazi.nvim";
-    rev = "main";  # You can specify a specific commit hash if needed
-    src = ./.;  # Adjust if the structure changes
+  yazi = pkgs.vimUtils.buildVimPlugin {
+    name = "yazi.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "mikavilpas";
+      repo = "yazi.nvim";
+      rev = "main";  # You can specify a specific commit hash if needed
+      src = ./.;  # This should point to the correct structure in the repo
+    };
   };
 in
 {
@@ -67,7 +70,7 @@ in
         vim-tmux-navigator
         vimtex
 
-        (pkgs.vimUtils.buildVimPlugin yazi {})  # Include Yazi plugin
+        yazi  # Include Yazi plugin here
       ];
       extraConfig = ''
         set noemoji
