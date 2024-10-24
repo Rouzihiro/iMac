@@ -11,7 +11,7 @@ let
       owner = "mikavilpas";
       repo = "yazi.nvim";
       rev = "main";  # You can specify a specific commit hash if needed
-      src = ./.;  # This should point to the correct structure in the repo
+      # This should point to the correct structure in the repo; typically, the default src is enough.
     };
   };
 in
@@ -70,7 +70,8 @@ in
         vim-tmux-navigator
         vimtex
 
-        yazi  # Include Yazi plugin here
+        # Add the Yazi plugin here
+        yazi
       ];
       extraConfig = ''
         set noemoji
