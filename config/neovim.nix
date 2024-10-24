@@ -4,6 +4,13 @@ let
     name = "fine-cmdline";
     src = inputs.fine-cmdline;
   };
+
+  yazi = pkgs.fetchFromGitHub {
+    owner = "mikavilpas";
+    repo = "yazi.nvim";
+    rev = "main";  # You can specify a specific commit hash if needed
+    src = ./.;  # Adjust if the structure changes
+  };
 in
 {
   programs = {
@@ -60,13 +67,7 @@ in
         vim-tmux-navigator
         vimtex
 
-       (pkgs.vimPlugins.callPackage (pkgs.fetchFromGitHub {
-        owner = "mikavilpas";
-        repo = "yazi.nvim";
-        rev = "main";  # You can specify a specific commit hash if needed
-        src = "src";  # Adjust if the structure changes
-      }) {})
-
+        (pkgs.vimUtils.buildVimPlugin yazi {})  # Include Yazi plugin
       ];
       extraConfig = ''
         set noemoji
@@ -96,3 +97,4 @@ in
     };
   };
 }
+
