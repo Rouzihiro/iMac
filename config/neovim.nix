@@ -6,7 +6,7 @@ let
     src = inputs.fine-cmdline;
   };
   yazi = pkgs.vimPlugins.yazi-nvim;
-  whichKey = pkgs.vimPlugins.which-key-nvim; # Add WhichKey plugin
+  whichKey = pkgs.vimPlugins.which-key-nvim;
 in
 {
   programs = {
@@ -38,7 +38,7 @@ in
         nui-nvim
         finecmdline
         yazi
-        whichKey  # Adding WhichKey plugin
+        whichKey
         nvim-treesitter.withAllGrammars
         lualine-nvim
         nvim-autopairs
@@ -86,7 +86,7 @@ in
         require("lualine").setup({
           icons_enabled = true,
         })
-        require("which-key").setup {}  # Initialize WhichKey
+        require("which-key").setup {}
       '';
     };
   };
