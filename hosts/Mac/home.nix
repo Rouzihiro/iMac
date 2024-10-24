@@ -193,16 +193,22 @@ in
 		  enable = true;
       settings = {
 			  manager = {
-				show_hidden = true;
+				sort_by = "natural";
+        sort_sensitive = true;
+        sort_reverse = false;
+        sort_dir_first = true;
+        linemode = "none";
+        show_hidden = true;
+        show_symlink = true;
+        };
         editor = {
         command = "nvim";
-              #args = [ "--" ];
+        #args = [ "--" ];
         };
       filetypes = {
       "*.nix" = "nvim";
     };
 		};
-    };
     };
 
   zsh = {
